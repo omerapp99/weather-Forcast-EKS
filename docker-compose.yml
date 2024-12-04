@@ -1,0 +1,8 @@
+
+services:
+  backend:
+    build: ./backend
+    build_args:
+    - DOCKER_USER=root
+    ports:
+      - "5000:5000"

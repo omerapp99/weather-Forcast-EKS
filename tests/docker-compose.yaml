@@ -1,0 +1,39 @@
+version: '3.8'  # Use version 3.8 or higher
+
+services:
+  backend:
+    image: backend:${BUILD_NUMBER}  # Use the pre-built image and tag it with BUILD_NUMBER
+    networks:
+      - test-network
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+
+  frontend:
+    image: node:16
+    networks:
+      - test-network
+    working_dir: /app/weather-ui
+    volumes:
+      - ./weather-ui:/app/weather-ui
+    command: sh -c "REACT_APP_API_URL=http://backend:5000/api/ npx serve -s build"
+    depends_on:
+      - backend
+
+  selenium-tests:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    networks:
+      - test-network
+    depends_on:
+      - frontend
+      - backend
+    environment:
+      - DISPLAY=:99  # Needed for headless browser
+    command: ["python3", "-m", "unittest", "discover", "-s", "tests", "-p", "*.py"]
+
+networks:
+  test-network:
+    driver: bridge
