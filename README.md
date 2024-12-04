@@ -112,38 +112,38 @@ Using **Jenkins**, this pipeline ensures continuous integration, static analysis
 ```bash
 git clone https://github.com/omerapp99/weather-Forcast-EKS.git
 cd weather-Forcast-EKS
-
-Step 2: Set Up Jenkins
-
-    Install the required plugins:
-        Docker Pipeline
-        Amazon Elastic Container Service
-        SSH Agent
+```
+### Step 2: Set Up Jenkins
+``` 
+Install the required plugins:
+    Docker Pipeline
+    Amazon Elastic Container Service
+    SSH Agent
         Slack Notification
-    Configure Jenkins:
-        Assign roles to master and agent nodes.
-        Configure Slack integration.
-        Define SonarQube scanner and necessary AWS credentials.
-
-Step 3: Provision Infrastructure
-
-    Use Terraform to create the EKS cluster:
-
-cd terraform
-terraform init
-terraform apply
-
-Step 4: Trigger the Pipeline
-
-    Configure Jenkins pipeline parameters:
-        Enable/disable specific stages such as Static Analysis or Tests.
-    Trigger builds manually or configure a webhook for automatic builds.
-
+Configure Jenkins:
+    Assign roles to master and agent nodes.
+    Configure Slack integration.
+    Define SonarQube scanner and necessary AWS credentials.
+```
+### Step 3: Provision Infrastructure
+```
+Use Terraform to create the EKS cluster:
+  cd terraform
+  terraform init
+  terraform apply
+```
+### Step 4: Trigger the Pipeline
+```
+Configure Jenkins pipeline parameters:
+    Enable/disable specific stages such as Static Analysis or Tests.
+Trigger builds manually or configure a webhook for automatic builds.
+```
 📂 File Structure
-
+```
 ├── weather-ui/       # React frontend code
 ├── backend/          # Flask backend code
 ├── terraform/        # Infrastructure as code (EKS)
 ├── Jenkinsfile       # CI/CD pipeline script
 ├── tests/            # Automated tests
 ├── README.md         # Project documentation
+```
