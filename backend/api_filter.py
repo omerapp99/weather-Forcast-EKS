@@ -2,11 +2,11 @@
 import requests
 import geopandas as gpd
 from shapely.geometry import Point
-from apikey import get_api_key
+import os
 
 def api_request(city):
     """Getting the City from the Flask Server, returning the response from the API """
-    api_key = get_api_key()
+    api_key = os.getenv('API_KEY')
     if len(city) < 1:
         return 404
     response = requests.get(f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{city}?unitGroup=metric&include=days&key={api_key}&contentType=json", timeout=10)
