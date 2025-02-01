@@ -1,5 +1,10 @@
 # CI/CD Pipline using EKS, ArgoCD, Jenkins, ECR to deploy Weather Forcast Website
 
+
+## 🔗 Repository Links
+- **Application Repository**: [Weather App Repository](https://github.com/omerapp99/weather-Forcast-EKS)
+- **Infrastructure Repository**: [IaC Repository](https://github.com/omerapp99/weather-Forcast-EKS-iac)
+
 A comprehensive Weather Application featuring a complete CI/CD pipeline, infrastructure as code, and secure secret management.
 
 ## 📑 Index
