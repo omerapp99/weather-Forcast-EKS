@@ -1,4 +1,4 @@
-# Weather App with EKS Infrastructure
+# CI/CD Pipline using EKS, ArgoCD, Jenkins, ECR to deploy Weather Forcast Website
 
 A comprehensive Weather Application featuring a complete CI/CD pipeline, infrastructure as code, and secure secret management.
 
